@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>TikTok Copy Analyzer · 口播分析工作台</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script defer src="/static/app.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><strong>TikTok Copy<br>Analyzer</strong></div>
+    <nav aria-label="工作区"><button id="new-nav" class="nav active"><span aria-hidden="true">✦</span> 文案工作台</button><button id="history-nav" class="nav"><span aria-hidden="true">◷</span> 分析历史 <b id="history-count">0</b></button></nav>
+    <div class="connections"><div class="small-title">运行环境</div><p>分析引擎 <strong id="analysis-mode">连接中</strong></p><p>飞书写入 <strong id="storage-mode">连接中</strong></p></div>
+  </aside>
+  <div class="workspace">
+    <header class="top"><span>工作空间 <i>/</i> <b id="breadcrumb">文案工作台</b></span><span class="local"><i></i><span id="mobile-mode">本地工作台</span></span></header>
+    <main id="main">
+      <section id="compose">
+        <div class="heading"><div><h1>口播文案分析</h1><p>拆解英文口播，审核可复用的表达，再写入飞书资产库。</p></div></div>
+        <form id="compose-form">
+          <div class="compose-grid">
+            <section class="card editor">
+              <div class="card-head"><div class="icon-box">Aa</div><h2>英文口播原文</h2><button type="button" id="sample" class="text-button">填入示例</button></div>
+              <label class="sr-only" for="script-text">英文口播原文</label>
+              <textarea required id="script-text" name="text" placeholder="Paste your English TikTok script here…" spellcheck="false" lang="en"></textarea>
+              <div class="editor-foot"><span>原文将逐句保留</span><span id="counter">0 词 · 0 字符</span></div>
+            </section>
+            <section class="card context"><div class="card-head"><h2>产品信息</h2><span class="sub">选填</span></div>
+              <label>产品名称<input name="product" placeholder="例如：便携咖啡杯"></label>
+              <label>产品类目<input name="category" placeholder="例如：咖啡器具"></label>
+              <label>产品卖点<textarea name="benefits" rows="2" placeholder="输入与这段口播相关的卖点"></textarea></label>
+              <label>视频链接<input name="video" type="url" placeholder="https://www.tiktok.com/…"></label>
+            </section>
+          </div>
+          <div class="analysis-bar"><div><strong>开始生成分析报告</strong><p>完成后进入人工审核，可逐项编辑。</p></div><button class="primary" id="analyze" type="submit"><span aria-hidden="true">✦</span> 开始分析</button></div>
+        </form>
+      </section>
+      <section id="history" hidden></section>
+      <section id="review" hidden></section>
+      <div role="status" id="notice" hidden></div>
+    </main>
+  </div>
+</body>
+</html>
